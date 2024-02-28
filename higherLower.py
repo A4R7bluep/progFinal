@@ -233,35 +233,7 @@ if __name__ == "__main__":
 
     print(Term.CLEAR)
 
-    # Main Loop - would be a do while
-    computeridx = randint(0, len(deck) - 1)
-    computercard = deck.pop(computeridx) # pop returns removed item
-    print("Computer has drawn a card")
-
-    useridx = randint(0, len(deck) - 1)
-    usercard = deck.pop(useridx) # pop returns removed item
-    print(f"Your card is the {usercard}")
-
-    result = higher_lower(computercard, usercard)
-    
-    match result:
-        case 1: # user won
-            gamesWon += 1
-        case -1: # user loss
-            gamesLost += 1
-
-    cont = input(f"{Term.BOLD}Do you want to continue playing? [y/N]: {Term.ENDC}").upper()
-    
-    match cont:
-        case "Y":
-            cont = bool(True)
-        case "N":
-            cont = bool(False)
-        case _:
-            print("Incorrect Format, considering as False")
-            cont = bool(False)
-
-    print()
+    cont = True
 
     while len(deck) != 0 and cont:
         computeridx = randint(0, len(deck) - 1)
